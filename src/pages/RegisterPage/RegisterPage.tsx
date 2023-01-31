@@ -5,18 +5,30 @@ import {
     TextInput,
 } from 'react-materialize'
 
+import {
+    REGISTER_PAGE_PASSWORD_DATA_TEST_ID,
+    REGISTER_PAGE_PASSWORD_LABEL,
+    REGISTER_PAGE_USERNAME_DATA_TEST_ID,
+    REGISTER_PAGE_USERNAME_LABEL,
+    REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID,
+    REGISTER_PAGE_VALID_PASSWORD_LABEL,
+} from 'const'
+
 
 const RegisterPage: React.FC = () => {
     return (
         <form>
             <TextInput 
-                label="Username"
+                data-testid={REGISTER_PAGE_USERNAME_DATA_TEST_ID}
+                label={REGISTER_PAGE_USERNAME_LABEL}
             />
             <TextInput 
-                label="Password"
+                data-testid={REGISTER_PAGE_PASSWORD_DATA_TEST_ID}
+                label={REGISTER_PAGE_PASSWORD_LABEL}
             />
             <TextInput 
-                label="Valid Password"
+                data-testid={REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID}
+                label={REGISTER_PAGE_VALID_PASSWORD_LABEL}
             />
             <Button
                 onClick={() => {
