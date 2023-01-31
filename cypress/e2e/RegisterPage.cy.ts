@@ -8,6 +8,9 @@ import {
     REGISTER_PAGE_VALID_PASSWORD_LABEL,
 } from "const"
 import {
+    setupValidRegisterApi,
+} from "../api"
+import {
     FULL_REGISTER_ROUTER, REGISTER_API_ALIAS, REGISTER_PAGE_VALID_PASSWORD, REGISTER_PAGE_VALID_USERNAME, REGISTER_PAGE_VALID_VALID_PASSWORD,
 } from "../constants"
 import {
@@ -18,6 +21,10 @@ import {
 
 
 describe("Register Page testing", () => {
+    beforeEach(() => {
+        setupValidRegisterApi()
+    })
+
     it("should display Username, Password, Valid Password label and username, password, valid data-testid input tags", () => {
         cy.visit(FULL_REGISTER_ROUTER)
         
@@ -43,7 +50,7 @@ describe("Register Page testing", () => {
         checkComponentExistByDataTestId(REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID)
             .click()
 
-        cy.wait(REGISTER_API_ALIAS)
+        cy.wait(`@${REGISTER_API_ALIAS}`)
             .then(intercept => {
                 expect(intercept.request.body.username).to.equal(REGISTER_PAGE_VALID_USERNAME)
                 expect(intercept.request.body.password).to.equal(REGISTER_PAGE_VALID_PASSWORD)

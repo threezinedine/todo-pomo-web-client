@@ -1,3 +1,7 @@
+export const EMPTY_STRING = ''
+
+export const API_BASE_ROUTE = 'http://localhost:8000'
+
 export const GET_METHOD = 'GET'
 export const POST_METHOD = 'POST'
 export const PUT_METHOD = 'PUT'
@@ -6,6 +10,8 @@ export const DELETE_METHOD = 'DELETE'
 export const HTTP_200_OK = 200 
 
 export const REGISTER_ROUTER = '/register'
+
+export const REGISTER_API_ROUTE = '/register'
 
 export const REGISTER_PAGE_USERNAME_LABEL = 'Username'
 export const REGISTER_PAGE_PASSWORD_LABEL = 'Password'
