@@ -4,6 +4,7 @@ import {
     REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID, 
     REGISTER_PAGE_USERNAME_DATA_TEST_ID, 
     REGISTER_PAGE_USERNAME_LABEL,
+    REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE,
     REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID,
     REGISTER_PAGE_VALID_PASSWORD_LABEL,
 } from "const"
@@ -11,7 +12,11 @@ import {
     setupValidRegisterApi,
 } from "../api"
 import {
-    FULL_REGISTER_ROUTER, REGISTER_API_ALIAS, REGISTER_PAGE_VALID_PASSWORD, REGISTER_PAGE_VALID_USERNAME, REGISTER_PAGE_VALID_VALID_PASSWORD,
+    FULL_REGISTER_ROUTER,
+    REGISTER_API_ALIAS,
+    REGISTER_PAGE_LESS_THAN_MIN_NUMBER_CHARACTERS_USERNAME, 
+    REGISTER_PAGE_VALID_PASSWORD, REGISTER_PAGE_VALID_USERNAME,
+    REGISTER_PAGE_VALID_VALID_PASSWORD,
 } from "../constants"
 import {
     checkComponentExistByDataTestId,
@@ -21,10 +26,6 @@ import {
 
 
 describe("Register Page testing", () => {
-    beforeEach(() => {
-        setupValidRegisterApi()
-    })
-
     it("should display Username, Password, Valid Password label and username, password, valid data-testid input tags", () => {
         cy.visit(FULL_REGISTER_ROUTER)
         
@@ -56,5 +57,14 @@ describe("Register Page testing", () => {
                 expect(intercept.request.body.username).to.equal(REGISTER_PAGE_VALID_USERNAME)
                 expect(intercept.request.body.password).to.equal(REGISTER_PAGE_VALID_PASSWORD)
             })
+    })
+
+    it("should check some length limitation all fields and the valid password must match with the password", () => {
+        cy.visit((FULL_REGISTER_ROUTER))
+
+        checkComponentExistByDataTestId(REGISTER_PAGE_USERNAME_DATA_TEST_ID)
+            .type(REGISTER_PAGE_LESS_THAN_MIN_NUMBER_CHARACTERS_USERNAME)
+
+        checkTextExist(REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE)
     })
 })

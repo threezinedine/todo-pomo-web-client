@@ -13,6 +13,8 @@ export const REGISTER_PAGE_VALID_USERNAME = "threezinedineusername"
 export const REGISTER_PAGE_VALID_PASSWORD = "threezinedinepassword"
 export const REGISTER_PAGE_VALID_VALID_PASSWORD = "threezinedinepassword"
 
+export const REGISTER_PAGE_LESS_THAN_MIN_NUMBER_CHARACTERS_USERNAME = "thre"
+
 export const REGISTER_API_RESPONSE_USER: User = {
     userId: REGISTER_PAGE_VALID_USERID,
     username: REGISTER_PAGE_VALID_USERNAME,
