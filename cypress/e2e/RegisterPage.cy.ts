@@ -1,13 +1,14 @@
 import {
     REGISTER_PAGE_PASSWORD_DATA_TEST_ID,
     REGISTER_PAGE_PASSWORD_LABEL, 
+    REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID, 
     REGISTER_PAGE_USERNAME_DATA_TEST_ID, 
     REGISTER_PAGE_USERNAME_LABEL,
     REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID,
     REGISTER_PAGE_VALID_PASSWORD_LABEL,
 } from "const"
 import {
-    FULL_REGISTER_ROUTER,
+    FULL_REGISTER_ROUTER, REGISTER_API_ALIAS, REGISTER_PAGE_VALID_PASSWORD, REGISTER_PAGE_VALID_USERNAME, REGISTER_PAGE_VALID_VALID_PASSWORD,
 } from "../constants"
 import {
     checkComponentExistByDataTestId,
@@ -27,5 +28,25 @@ describe("Register Page testing", () => {
         checkComponentExistByDataTestId(REGISTER_PAGE_USERNAME_DATA_TEST_ID)
         checkComponentExistByDataTestId(REGISTER_PAGE_PASSWORD_DATA_TEST_ID)
         checkComponentExistByDataTestId(REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID)
+    })
+
+    it("should call the api for register route, when all component is typed and the submit button is clicked.", () => {
+        cy.visit((FULL_REGISTER_ROUTER))
+
+        checkComponentExistByDataTestId(REGISTER_PAGE_USERNAME_DATA_TEST_ID)
+            .type(REGISTER_PAGE_VALID_USERNAME)
+        checkComponentExistByDataTestId(REGISTER_PAGE_PASSWORD_DATA_TEST_ID)
+            .type(REGISTER_PAGE_VALID_PASSWORD)
+        checkComponentExistByDataTestId(REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID)
+            .type(REGISTER_PAGE_VALID_VALID_PASSWORD)
+
+        checkComponentExistByDataTestId(REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID)
+            .click()
+
+        cy.wait(REGISTER_API_ALIAS)
+            .then(intercept => {
+                expect(intercept.request.body.username).to.equal(REGISTER_PAGE_VALID_USERNAME)
+                expect(intercept.request.body.password).to.equal(REGISTER_PAGE_VALID_PASSWORD)
+            })
     })
 })

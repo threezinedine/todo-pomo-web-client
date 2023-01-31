@@ -3,5 +3,5 @@ export const checkTextExist = (text: string) => {
 }
 
 export const checkComponentExistByDataTestId = (testid: string) => {
-    cy.get(`[data-testid="${testid}"]`)
+    return cy.get(`[data-testid="${testid}"]`)
 }
