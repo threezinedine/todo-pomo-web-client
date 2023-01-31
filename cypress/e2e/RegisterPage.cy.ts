@@ -38,6 +38,7 @@ describe("Register Page testing", () => {
     })
 
     it("should call the api for register route, when all component is typed and the submit button is clicked.", () => {
+        setupValidRegisterApi()
         cy.visit((FULL_REGISTER_ROUTER))
 
         checkComponentExistByDataTestId(REGISTER_PAGE_USERNAME_DATA_TEST_ID)
