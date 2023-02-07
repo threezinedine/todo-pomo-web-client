@@ -42,55 +42,6 @@ import { REGISTER_PAGE_LESS_THAN_MIN_NUMBER_CHARACTERS_USERNAME } from '../../..
 const st = combineClassName(styles)
 
 const RegisterPage: React.FC = () => {
-    const formik = useFormik({
-        initialValues: {
-            username: EMPTY_STRING,
-            password: EMPTY_STRING,
-            validPassword: EMPTY_STRING,
-        },
-        onSubmit: (values) => {
-            console.log(values)
-            api({
-                method: POST_METHOD,
-                url: REGISTER_API_ROUTE,
-                data: {
-                    username: values.username,
-                    password: values.password,
-                },
-            })
-        },
-        validate: (values) => {
-            // the username should have the length <= 40 and >= 8 and has no space or special characters
-            // the same as the password
-            // the valid password should have the same value as the password.
-
-            const errors: RegisterPageFormData = {
-                username: EMPTY_STRING,
-                password: EMPTY_STRING,
-                validPassword: EMPTY_STRING,
-            }
-
-            if (values.username.length > 40 || values.username.length < 8) {
-                errors.username = 'Username should have the length <= 40 and >= 8'
-            } else if (values.username.match(/[^a-zA-Z0-9]/)) {
-                errors.username = 'Username should not have special characters or space'
-            }
-
-            if (values.password.length > 40 || values.password.length < 8) {
-                errors.password = 'Password should have the length <= 40 and >= 8'
-            } else if (values.password.match(/[^a-zA-Z0-9]/)) {
-                errors.password = 'Password should not have special characters or space'
-            }
-
-            if (values.password !== values.validPassword) {
-                errors.validPassword = 'Password and valid password should be the same'
-            }
-
-            return errors
-        }
-    })
-
-
     return (
         <Form
             labelCol={{ span: 8 }}

@@ -35,6 +35,7 @@ export const REGISTER_PAGE_USERNAME_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ER
     REGISTER_PAGE_USERNAME_MAX_LENGTH
 } characters.`
 
+export const REGISTER_PAGE_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE = 'Username must have no space or special character.'
 
 export interface User {
     userId: number
