@@ -31,6 +31,7 @@ import {
     REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE,
     REGISTER_PAGE_USERNAME_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE,
     REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID,
+    REGISTER_PAGE_VALID_PASSWORD_DOES_NOT_MATCH_PASSWORD_ERROR_MESSAGE,
     REGISTER_PAGE_VALID_PASSWORD_LABEL,
     USERNAME_KEY,
     VALID_PASSWORD_KEY,
@@ -47,8 +48,11 @@ import { REGISTER_PAGE_LESS_THAN_MIN_NUMBER_CHARACTERS_USERNAME } from '../../..
 const st = combineClassName(styles)
 
 const RegisterPage: React.FC = () => {
+    const [form] = Form.useForm()
+
     return (
         <Form
+            form={form} 
             labelCol={{ span: 8 }}
             wrapperCol={{ span: 16 }}
             style={{ maxWidth: 600 }}
@@ -119,7 +123,7 @@ const RegisterPage: React.FC = () => {
                     },
                 ]}
             >
-                <Input 
+                <Input.Password 
                     data-testid={REGISTER_PAGE_PASSWORD_DATA_TEST_ID}
                 />
             </Form.Item>
@@ -130,10 +134,21 @@ const RegisterPage: React.FC = () => {
                     {
                         required : true,
                         message: 'Please input your valid password!',
+                    }, 
+                    {
+                        validator: (rule, value, callback) => {
+                            // check the value is match with the password in the form
+                            console.log(form.getFieldValue(PASSWORD_KEY), value, form)
+                            if (value !== form.getFieldValue(PASSWORD_KEY)) {
+                                callback(REGISTER_PAGE_VALID_PASSWORD_DOES_NOT_MATCH_PASSWORD_ERROR_MESSAGE)
+                            } else {
+                                callback()
+                            }
+                        }
                     }
                 ]}
             >
-                <Input 
+                <Input.Password 
                     data-testid={REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID}
                 />
             </Form.Item>
