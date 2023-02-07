@@ -25,6 +25,7 @@ import {
     REGISTER_PAGE_USERNAME_MIN_LENGTH,
     REGISTER_PAGE_USERNAME_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE,
     REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE,
+    REGISTER_PAGE_USERNAME_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE,
     REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID,
     REGISTER_PAGE_VALID_PASSWORD_LABEL,
     USERNAME_KEY,
@@ -63,7 +64,6 @@ const RegisterPage: React.FC = () => {
             autoComplete="off"
         >
             <Form.Item
-                data-testid={REGISTER_PAGE_USERNAME_DATA_TEST_ID}
                 label={REGISTER_PAGE_USERNAME_LABEL}
                 name={USERNAME_KEY}
                 rules={[
@@ -79,12 +79,25 @@ const RegisterPage: React.FC = () => {
                         max: REGISTER_PAGE_USERNAME_MAX_LENGTH,
                         message: REGISTER_PAGE_USERNAME_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE,
                     },
+                    {
+                        validator: (rule, value, callback) => {
+                            // check if value contains space or special characters
+                            // then call callback with error message
+                            // otherwise
+                            if (!value.match(/^[a-zA-Z0-9]+$/)) {
+                                callback(REGISTER_PAGE_USERNAME_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE)
+                            } else {
+                                callback()
+                            }
+                        }
+                    }
                 ]}
             >
-                <Input />
+                <Input 
+                    data-testid={REGISTER_PAGE_USERNAME_DATA_TEST_ID}
+                />
             </Form.Item>
             <Form.Item
-                data-testid={REGISTER_PAGE_PASSWORD_DATA_TEST_ID}
                 label={REGISTER_PAGE_PASSWORD_LABEL}
                 name={PASSWORD_KEY}
                 rules={[
@@ -94,10 +107,11 @@ const RegisterPage: React.FC = () => {
                     },
                 ]}
             >
-                <Input />
+                <Input 
+                    data-testid={REGISTER_PAGE_PASSWORD_DATA_TEST_ID}
+                />
             </Form.Item>
             <Form.Item
-                data-testid={REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID}
                 label={REGISTER_PAGE_VALID_PASSWORD_LABEL}
                 name={VALID_PASSWORD_KEY}
                 rules={[
@@ -107,7 +121,9 @@ const RegisterPage: React.FC = () => {
                     }
                 ]}
             >
-                <Input />
+                <Input 
+                    data-testid={REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID}
+                />
             </Form.Item>
             <Form.Item>
                 <Button 
