@@ -18,6 +18,10 @@ import {
     REGISTER_API_ROUTE,
     REGISTER_PAGE_PASSWORD_DATA_TEST_ID,
     REGISTER_PAGE_PASSWORD_LABEL,
+    REGISTER_PAGE_PASSWORD_MAX_LENGTH,
+    REGISTER_PAGE_PASSWORD_MIN_LENGTH,
+    REGISTER_PAGE_PASSWORD_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE,
+    REGISTER_PAGE_PASSWORD_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE,
     REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID,
     REGISTER_PAGE_USERNAME_DATA_TEST_ID,
     REGISTER_PAGE_USERNAME_LABEL,
@@ -104,6 +108,14 @@ const RegisterPage: React.FC = () => {
                     {
                         required : true,
                         message: 'Please input your password!',
+                    },
+                    {
+                        min: REGISTER_PAGE_PASSWORD_MIN_LENGTH,
+                        message: REGISTER_PAGE_PASSWORD_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE,
+                    },
+                    {
+                        max: REGISTER_PAGE_PASSWORD_MAX_LENGTH,
+                        message: REGISTER_PAGE_PASSWORD_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE,
                     },
                 ]}
             >

@@ -47,7 +47,6 @@ export const REGISTER_PAGE_PASSWORD_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ER
     REGISTER_PAGE_PASSWORD_MAX_LENGTH
 } characters.`
 
-export const REGISTER_PAGE_PASSWORD_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE = 'Password must have no space or special character.'
 
 export interface User {
     userId: number
