@@ -21,7 +21,12 @@ export const REGISTER_PAGE_PASSWORD_DATA_TEST_ID = 'password'
 export const REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID = 'validPassword'
 export const REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID = 'registerButton'
 
+export const USERNAME_KEY = 'username'
+export const PASSWORD_KEY = 'password'
+export const VALID_PASSWORD_KEY = 'validPassword'
+
 export const REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE = 'Username must have more than 5 characters.'
+
 
 export interface User {
     userId: number

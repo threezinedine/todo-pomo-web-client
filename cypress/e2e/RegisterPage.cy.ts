@@ -1,3 +1,4 @@
+import userEvent from "@testing-library/user-event"
 import {
     REGISTER_PAGE_PASSWORD_DATA_TEST_ID,
     REGISTER_PAGE_PASSWORD_LABEL, 
@@ -64,6 +65,9 @@ describe("Register Page testing", () => {
 
         checkComponentExistByDataTestId(REGISTER_PAGE_USERNAME_DATA_TEST_ID)
             .type(REGISTER_PAGE_LESS_THAN_MIN_NUMBER_CHARACTERS_USERNAME)
+
+        checkComponentExistByDataTestId(REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID)
+            .click()
 
         checkTextExist(REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE)
     })
