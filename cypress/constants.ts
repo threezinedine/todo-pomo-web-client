@@ -23,6 +23,8 @@ export const REGISTER_PAGE_MORE_THAN_MAX_NUMBER_CHARACTERS_PASSWORD = "adlsfkahw
 export const REGISTER_PAGE_HAVE_SPECIAL_CHARACTER_PASSWORD = "threezinedinepassword!"
 export const REGISTER_PAGE_HAVE_SPACE_CHARACTER_PASSWORD = "threezinedine username"
 
+export const REGISTER_PAGE_NOT_MATCH_PASSWORD_VALID_PASSWORD = "threezinedinepasswordnotmatch"
+
 export const REGISTER_API_RESPONSE_USER: User = {
     userId: REGISTER_PAGE_VALID_USERID,
     username: REGISTER_PAGE_VALID_USERNAME,

@@ -47,6 +47,8 @@ export const REGISTER_PAGE_PASSWORD_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ER
     REGISTER_PAGE_PASSWORD_MAX_LENGTH
 } characters.`
 
+export const REGISTER_PAGE_VALID_PASSWORD_DOES_NOT_MATCH_PASSWORD_ERROR_MESSAGE = 'Valid password does not match password.'
+
 
 export interface User {
     userId: number
