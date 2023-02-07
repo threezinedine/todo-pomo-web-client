@@ -37,6 +37,18 @@ export const REGISTER_PAGE_USERNAME_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ER
 
 export const REGISTER_PAGE_USERNAME_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE = 'Username must have no space or special character.'
 
+export const REGISTER_PAGE_PASSWORD_MIN_LENGTH = 8
+export const REGISTER_PAGE_PASSWORD_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE = `Password must have more than ${
+    REGISTER_PAGE_PASSWORD_MIN_LENGTH
+} characters.`
+
+export const REGISTER_PAGE_PASSWORD_MAX_LENGTH = 40
+export const REGISTER_PAGE_PASSWORD_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE = `Password must have less than ${
+    REGISTER_PAGE_PASSWORD_MAX_LENGTH
+} characters.`
+
+export const REGISTER_PAGE_PASSWORD_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE = 'Password must have no space or special character.'
+
 export interface User {
     userId: number
     username: string
