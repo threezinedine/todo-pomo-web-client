@@ -21,6 +21,7 @@ import {
     REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID,
     REGISTER_PAGE_USERNAME_DATA_TEST_ID,
     REGISTER_PAGE_USERNAME_LABEL,
+    REGISTER_PAGE_USERNAME_MIN_LENGTH,
     REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE,
     REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID,
     REGISTER_PAGE_VALID_PASSWORD_LABEL,
@@ -118,7 +119,7 @@ const RegisterPage: React.FC = () => {
                         message: 'Please input your username!',
                     },
                     {
-                        min: 8,
+                        min: REGISTER_PAGE_USERNAME_MIN_LENGTH,
                         message: REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE,
                     },
                 ]}

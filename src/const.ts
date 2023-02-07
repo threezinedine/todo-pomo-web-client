@@ -25,7 +25,10 @@ export const USERNAME_KEY = 'username'
 export const PASSWORD_KEY = 'password'
 export const VALID_PASSWORD_KEY = 'validPassword'
 
-export const REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE = 'Username must have more than 5 characters.'
+export const REGISTER_PAGE_USERNAME_MIN_LENGTH = 8
+export const REGISTER_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE = `Username must have more than ${
+    REGISTER_PAGE_USERNAME_MIN_LENGTH
+} characters.`
 
 
 export interface User {
