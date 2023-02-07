@@ -2,6 +2,6 @@ export const checkTextExist = (text: string) => {
     cy.contains(text) 
 }
 
-export const checkComponentExistByDataTestId = (testid: string) => {
+export const getComponentExistByDataTestId = (testid: string) => {
     return cy.get(`[data-testid="${testid}"]`)
 }
