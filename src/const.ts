@@ -12,6 +12,8 @@ export const HTTP_200_OK = 200
 export const USERNAME_KEY = 'username'
 export const PASSWORD_KEY = 'password'
 export const VALID_PASSWORD_KEY = 'validPassword'
+export const TOKEN_KEY = 'token'
+export const USER_KEY = 'user'
 
 
 // register page
@@ -53,12 +55,38 @@ export const REGISTER_PAGE_VALID_PASSWORD_DOES_NOT_MATCH_PASSWORD_ERROR_MESSAGE 
 // login page
 export const LOGIN_ROUTER = '/login'
 
+export const LOGIN_API_ROUTE = '/login'
+
 export const LOGIN_PAGE_USERNAME_LABEL = 'Username'
 export const LOGIN_PAGE_PASSWORD_LABEL = 'Password'
 export const LOGIN_PAGE_LOGIN_BUTTON_LABEL = 'Login'
 export const LOGIN_PAGE_USERNAME_DATA_TEST_ID = 'username'
 export const LOGIN_PAGE_PASSWORD_DATA_TEST_ID = 'password'
 export const LOGIN_PAGE_LOGIN_BUTTON_DATA_TEST_ID = 'loginButton'
+
+export const LOGIN_PAGE_USERNAME_MIN_LENGTH = 8
+export const LOGIN_PAGE_USERNAME_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE = `Username must have more than ${
+    LOGIN_PAGE_USERNAME_MIN_LENGTH 
+} characters.`
+
+export const LOGIN_PAGE_USERNAME_MAX_LENGTH = 40
+export const LOGIN_PAGE_USERNAME_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE = `Username must have less than ${
+    LOGIN_PAGE_USERNAME_MAX_LENGTH
+} characters.`
+
+export const LOGIN_PAGE_USERNAME_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE = 'Username must have no space or special character.'
+
+export const LOGIN_PAGE_PASSWORD_MIN_LENGTH = 8
+export const LOGIN_PAGE_PASSWORD_MUST_HAVE_MORE_THAN_MIN_NUMBER_CHARACTERS_ERROR_MESSAGE = `Password must have more than ${
+    LOGIN_PAGE_PASSWORD_MIN_LENGTH
+} characters.`
+
+export const LOGIN_PAGE_PASSWORD_MAX_LENGTH = 40
+export const LOGIN_PAGE_PASSWORD_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE = `Password must have less than ${
+    LOGIN_PAGE_PASSWORD_MAX_LENGTH
+} characters.`
+
+export const LOGIN_PAGE_PASSWORD_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE = 'Password must have no space or special character.'
 
 // interface
 export interface User {
