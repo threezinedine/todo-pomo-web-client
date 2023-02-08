@@ -6,6 +6,7 @@ import {
     USER_KEY,
 } from "const"
 import {
+    LOGIN_API_ALIAS,
     LOGIN_API_RESPONSE_USER,
     LOGIN_PAGE_TESTING_TOKEN,
     REGISTER_API_ALIAS, 
