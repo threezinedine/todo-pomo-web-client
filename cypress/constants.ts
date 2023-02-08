@@ -1,12 +1,14 @@
 import { 
+    LOGIN_ROUTER,
     REGISTER_ROUTER, 
     User,
 } from "const"
 
 
 export const TESTING_HOST_BASE = "http://localhost:3000"
-export const FULL_REGISTER_ROUTER = `${TESTING_HOST_BASE}${REGISTER_ROUTER}`
 
+//register
+export const FULL_REGISTER_ROUTER = `${TESTING_HOST_BASE}${REGISTER_ROUTER}`
 
 export const REGISTER_PAGE_VALID_USERID = 1
 export const REGISTER_PAGE_VALID_USERNAME = "threezinedineusername"
@@ -34,3 +36,7 @@ export const REGISTER_API_RESPONSE_USER: User = {
 }
 
 export const REGISTER_API_ALIAS = "registerAPI"
+
+
+// login
+export const FULL_LOGIN_ROUTER = `${TESTING_HOST_BASE}${LOGIN_ROUTER}`

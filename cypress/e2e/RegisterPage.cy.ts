@@ -57,10 +57,13 @@ describe("Register Page testing", () => {
         cy.visit((FULL_REGISTER_ROUTER))
 
         getComponentExistByDataTestId(REGISTER_PAGE_USERNAME_DATA_TEST_ID)
+            .clear()
             .type(REGISTER_PAGE_VALID_USERNAME)
         getComponentExistByDataTestId(REGISTER_PAGE_PASSWORD_DATA_TEST_ID)
+            .clear()
             .type(REGISTER_PAGE_VALID_PASSWORD)
         getComponentExistByDataTestId(REGISTER_PAGE_VALID_PASSWORD_DATA_TEST_ID)
+            .clear()
             .type(REGISTER_PAGE_VALID_VALID_PASSWORD)
 
         getComponentExistByDataTestId(REGISTER_PAGE_REGISTER_BUTTON_DATA_TEST_ID)
