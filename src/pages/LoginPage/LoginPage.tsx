@@ -82,19 +82,6 @@ const LoginPage: React.FC = () => {
                         max: LOGIN_PAGE_PASSWORD_MAX_LENGTH,
                         message: LOGIN_PAGE_PASSWORD_MUST_HAVE_LESS_THAN_MAX_NUMBER_CHARACTERS_ERROR_MESSAGE,
                     },
-                    {
-                        validator: (rule, value, callback) => {
-                            // todo: the value should not contain any special characters
-                            // or spaces.
-
-                            if (!value.match(/^[a-zA-Z0-9]+$/) || value.contains(' ')) {
-                                callback(LOGIN_PAGE_PASSWORD_MUST_HAVE_NO_SPACE_OR_CHARACTER_ERROR_MESSAGE)
-                            }
-                            else {
-                                callback()
-                            }
-                        }
-                    }
                 ]}
             >
                 <Input.Password 
